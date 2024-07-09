@@ -3,7 +3,7 @@
     "id": "1",
     "name": "Camisa",
     "image": "camisa.jpg",
-    "price": "20",
+    "price": 20,
     "description": "Camisa de algodón para caballero"
   },
   {

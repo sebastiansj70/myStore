@@ -1,5 +1,5 @@
-import ProductService from '../../domain/services/ProductService';
-import ProductRepositoryImpl from '../../infrastructure/ProductRepositoryImpl';
+import ProductService from '../../../domain/services/ProductService';
+import ProductRepositoryImpl from '../../../infrastructure/ProductRepositoryImpl';
 
 class GetProduct {
     private productService: ProductService;

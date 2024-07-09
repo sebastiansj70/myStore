@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express'
 import bodyParser from 'body-parser';
 import productRoutes from './adapters/routes/ProductRoutes'
+import CartRoutes from './adapters/routes/CartRoutes'
 import cors from 'cors';
 
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use('/products', productRoutes);
+app.use('/cart', CartRoutes);
 
 
 // Middleware para manejo de errores

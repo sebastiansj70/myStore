@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { Product } from "../../domain/entities/Product";
-import GetAllProducts from "../../application/usecases/GetAllProducts";
-import SaveProduct from "../../application/usecases/SaveProduct";
-import GetProduct from "../../application/usecases/GetProduct";
-import DeleteProduct from "../../application/usecases/DeleteProduct";
-import UpdateProduct from "../../application/usecases/UpdateProdcut";
+import GetAllProducts from "../../application/usecases/product/GetAllProducts";
+import SaveProduct from "../../application/usecases/product/SaveProduct";
+import GetProduct from "../../application/usecases/product/GetProduct";
+import DeleteProduct from "../../application/usecases/product/DeleteProduct";
+import UpdateProduct from "../../application/usecases/product/UpdateProdcut";
 
 
 export const getAllProdcuts = async (req: Request, res: Response) => {
