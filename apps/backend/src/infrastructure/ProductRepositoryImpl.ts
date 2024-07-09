@@ -4,7 +4,7 @@ import path from 'path';
 import { Product } from '../domain/entities/Product';
 import ProductRepository from '../domain/repositories/ProductRepository';
 
-const productsFilePath = path.join(__dirname, '../persistence/products.json');
+const productsFilePath = path.join(__dirname, '../../data/products.json');
 
 class ProductRepositoryImpl implements ProductRepository {
 
@@ -22,6 +22,7 @@ class ProductRepositoryImpl implements ProductRepository {
         try {
             const productsData = await fs.readFile(productsFilePath, 'utf8');
             const products: Product[] = JSON.parse(productsData);
+
             return products;
         } catch (error) {
             throw new Error('Error al obtener los productos');
@@ -61,13 +62,13 @@ class ProductRepositoryImpl implements ProductRepository {
         }
     }
 
-    async updateProduct(product: Product): Promise<void> {
+    async updateProduct(updateProduct: Product): Promise<void> {
         try {
             const productsData = await fs.readFile(productsFilePath, 'utf8');
             let products: Product[] = JSON.parse(productsData);
-            const index = products.findIndex((product: Product) => product.id === product.id);
+            const index = products.findIndex((product: Product) => product.id === updateProduct.id);
             if (index !== -1) {
-                products[index] = product;
+                products[index] = { ...updateProduct };
             }
             fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
         } catch (error) {

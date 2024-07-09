@@ -10,8 +10,8 @@ class AddProduct {
         this.productService = new ProductService(productRepository);
     }
 
-    async execute(product: Product): Promise<void> {
-        await this.productService.addProduct(product)
+    async execute(product: Product) {
+        return await this.productService.addProduct(product)
     }
 
 }

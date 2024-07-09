@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "name": "Camisa",
+    "image": "camisa.jpg",
+    "price": "20",
+    "description": "Camisa de algodón para caballero"
+  },
+  {
+    "id": "2",
+    "name": "Pantalon",
+    "image": "pantalon.jpg",
+    "price": 30,
+    "description": "Pantalón de mezclilla para caballero"
+  },
+  {
+    "id": "3",
+    "name": "Zapatos",
+    "image": "zapatos.jpg",
+    "price": 50,
+    "description": "Zapatos de cuero para caballero"
+  },
+  {
+    "id": "4",
+    "name": "Blusa",
+    "image": "blusa.jpg",
+    "price": 25,
+    "description": "Blusa de moda para dama"
+  },
+  {
+    "id": "5",
+    "name": "Falda",
+    "image": "falda.jpg",
+    "price": 35,
+    "description": "Falda elegante para dama"
+  },
+  {
+    "id": "6",
+    "name": "Vestido",
+    "image": "vestido.jpg",
+    "price": 45,
+    "description": "Vestido de noche para dama"
+  },
+  {
+    "id": "7",
+    "name": "Playera",
+    "image": "playera.jpg",
+    "price": 15,
+    "description": "Playera casual para caballero"
+  },
+  {
+    "id": "8",
+    "name": "Short",
+    "image": "short.jpg",
+    "price": 25,
+    "description": "Short de playa para caballero"
+  },
+  {
+    "id": "9",
+    "name": "Sandalias",
+    "price": 42,
+    "image": "sandalias.jpg",
+    "description": "Sandalias de moda para dama"
+  }
+]

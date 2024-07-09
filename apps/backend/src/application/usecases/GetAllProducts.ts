@@ -1,3 +1,4 @@
+import { Product } from '../../domain/entities/Product';
 import ProductService from '../../domain/services/ProductService';
 import ProductRepositoryImpl from '../../infrastructure/ProductRepositoryImpl';
 
@@ -9,8 +10,8 @@ class GetAllProducts {
         this.productService = new ProductService(productRepository);
     }
 
-    async execute(): Promise<void> {
-        await this.productService.getAllProducts()
+    async execute() {
+        return await this.productService.getAllProducts()
     }
 
 }

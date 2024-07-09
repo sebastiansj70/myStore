@@ -9,8 +9,8 @@ class GetProduct {
         this.productService = new ProductService(productRepository);
     }
 
-    async execute(id: string): Promise<void> {
-        await this.productService.getProductById(id)
+    async execute(id: string) {
+        return await this.productService.getProductById(id)
     }
 
 }

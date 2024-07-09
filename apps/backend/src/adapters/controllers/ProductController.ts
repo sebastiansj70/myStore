@@ -14,31 +14,31 @@ export const getAllProdcuts = async (req: Request, res: Response) => {
 }
 
 export const addProduct = async (req: Request, res: Response) => {
-    const { id, name, price } = req.body;
-    const product = new Product(id, name, price)
+    const { id, name, price, image, description } = req.body;
+    const product = new Product(id, name, price, image, description)
     const saveProduct = new SaveProduct()
     await saveProduct.execute(product)
     res.status(200).send('Product successfully added')
 }
 
 export const getProduct = async (req: Request, res: Response) => {
-    const { id } = req.body
+    const { productId } = req.params
     const product = new GetProduct()
-    const result = await product.execute(id)
+    const result = await product.execute(productId)
     res.json(result)
 }
 
 export const deleteProduct = async (req: Request, res: Response) => {
-    const { id } = req.body
+    const { productId } = req.params
     const product = new DeleteProduct()
-    await product.execute(id)
+    await product.execute(productId)
     res.status(200).send('Product successfully deleted')
 }
 
 export const updateProduct = async (req: Request, res: Response) => {
-    const { id, name, price } = req.body;
+    const { id, name, price, image, description } = req.body;
     const updateProduct = new UpdateProduct()
-    const product = new Product(id, name, price)
+    const product = new Product(id, name, price, image, description)
     await updateProduct.execute(product)
     res.status(200).send('Product successfully updated')
 }

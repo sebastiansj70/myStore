@@ -9,8 +9,8 @@ class DeleteProduct {
         this.productService = new ProductService(productRepository);
     }
 
-    async execute(id: string): Promise<void> {
-        await this.productService.deleteProduct(id)
+    async execute(id: string) {
+       return await this.productService.deleteProduct(id)
     }
 
 }
