@@ -1,0 +1,49 @@
+.product-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    width: 300px;
+}
+
+.product-image-container {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image {
+    width: auto;
+    height: auto;
+}
+
+.product-details {
+    padding: 1rem;
+    text-align: start;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.btn-card-container {
+    justify-content: center;
+    display: flex;
+}
+
+.quantity-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.quantity-input button {
+    margin: 0 0.5rem;
+}

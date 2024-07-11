@@ -1,0 +1,15 @@
+.productListContainer {
+    justify-content: center;
+    padding: 20px;
+}
+
+.productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px 50px;
+}
+
+.productCard {
+    display: flex;
+    justify-content: center;
+}

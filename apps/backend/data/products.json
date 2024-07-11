@@ -2,56 +2,56 @@
     {
         "id": "1",
         "name": "Camisa",
-        "image": "camisa.jpg",
+        "image": "https://contents.mediadecathlon.com/p1998283/k$483d3e41ece2d40a7763d30e0337f9ee/camiseta-algodon-hombre-solognac-sg-100.jpg?format=auto&quality=70&f=800x0",
         "price": 20,
         "description": "Camisa de algodón para caballero"
     },
     {
         "id": "2",
         "name": "Pantalon",
-        "image": "pantalon.jpg",
+        "image": "https://img.freepik.com/fotos-premium/blue-jeans-doblados-aislados-superficie-blanca-ropa-hombre-mezclilla-moda-endecha-plana-vista-arriba_94064-4659.jpg",
         "price": 30,
         "description": "Pantalón de mezclilla para caballero"
     },
     {
         "id": "3",
         "name": "Zapatos",
-        "image": "zapatos.jpg",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/71+spCGv5LL._AC_UL330_SR330,330_.jpg",
         "price": 50,
         "description": "Zapatos de cuero para caballero"
     },
     {
         "id": "4",
         "name": "Blusa",
-        "image": "blusa.jpg",
+        "image": "https://i.pinimg.com/736x/a1/bd/a3/a1bda3b792085508afa7871c3fe2ccb9.jpg",
         "price": 25,
         "description": "Blusa de moda para dama"
     },
     {
         "id": "5",
         "name": "Falda",
-        "image": "falda.jpg",
+        "image": "https://media.istockphoto.com/id/882157056/es/foto/falda-roja-elegante-con-mo%C3%B1o-de-cinta-aislado-en-blanco.jpg?s=612x612&w=0&k=20&c=v0w57hWYPAhVTWWeVWCrRueUDg1C9vntGWT45nVJEvk=",
         "price": 35,
         "description": "Falda elegante para dama"
     },
     {
         "id": "6",
         "name": "Vestido",
-        "image": "vestido.jpg",
+        "image": "https://static.vecteezy.com/system/resources/previews/012/194/484/non_2x/beautiful-and-elegant-evening-women-s-dress-on-a-white-background-free-photo.jpg",
         "price": 45,
         "description": "Vestido de noche para dama"
     },
     {
         "id": "7",
         "name": "Playera",
-        "image": "playera.jpg",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_956452-CBT76126592956_052024-O.webp",
         "price": 15,
         "description": "Playera casual para caballero"
     },
     {
         "id": "8",
         "name": "Short",
-        "image": "short.jpg",
+        "image": "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/9d083a9a-e643-4ee3-ab3f-4386bc14d6a9.3b657452bf98a451563c5d0120c8cc82.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
         "price": 25,
         "description": "Short de playa para caballero"
     },
@@ -59,7 +59,7 @@
         "id": "9",
         "name": "Sandalias",
         "price": 42,
-        "image": "sandalias.jpg",
+        "image": "https://img.freepik.com/foto-gratis/hermosa-sandalia-masculina_1203-7638.jpg?t=st=1720713057~exp=1720716657~hmac=267bcba566b9e066fd89bdd03a655fdd99a8c301187a06e83534a5183df0f8d3&w=826",
         "description": "Sandalias de moda para dama"
     }
 ]

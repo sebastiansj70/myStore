@@ -1,12 +1,12 @@
-import { Item, Price } from "./productInterface"
+import { Product, Price } from "./productInterface"
 
 
 export interface CartItem {
- items: Item[],
- price: Price
+    items: Product[],
+    price: Price
 }
 
 export interface newItem {
- id: string,
- quantity: number
+    id: string,
+    quantity: number
 }
