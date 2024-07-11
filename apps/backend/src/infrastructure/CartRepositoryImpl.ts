@@ -25,13 +25,25 @@ class CartRepositoryImpl implements CartRepository {
             }
 
             const totalPrice = total + (product.price * item.quantity);
+            const itemTotalPrice = product.price * item.quantity;
             cart.price.total = totalPrice
 
             const existingItemIndex = cart.items.findIndex((cartItem) => cartItem.id === item.id);
             if (existingItemIndex !== -1) {
                 cart.items[existingItemIndex].quantity += item.quantity;
+                cart.items[existingItemIndex].price = {
+                    subtotal: product.price,
+                    total: product.price * cart.items[existingItemIndex].quantity
+                }
             } else {
-                cart.items.push(item);
+                cart.items.push({
+                    ...item,
+                    ...product,
+                    price: {
+                        subtotal: product.price,
+                        total: itemTotalPrice
+                    }
+                });
             }
 
             await fs.writeFile(cartFilePath, JSON.stringify(cart, null, 2));
