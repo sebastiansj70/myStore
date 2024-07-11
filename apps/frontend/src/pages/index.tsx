@@ -10,7 +10,7 @@ const HomePage = () => {
                 <div className="productList">
                     {products.map(product => (
                         <div key={product.id} className="productCard">
-                            <ProductCard product={product} onAddToCart={() => { }} />
+                            <ProductCard product={product} />
                         </div>
                     ))}
                 </div>

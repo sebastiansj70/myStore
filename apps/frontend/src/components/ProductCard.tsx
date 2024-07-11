@@ -2,28 +2,40 @@ import React, { useState } from 'react';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { Product } from '../entities/productInterface';
+import { CartItem } from '@/entities/cartInterface';
+import { useCart } from '../context/CartContext';
+import { addProductToCart } from "@/services/cartService";
+
 
 interface ProductCardProps {
     product: Product;
-    onAddToCart: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const [showQuantityInput, setShowQuantityInput] = useState(false);
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(0);
 
-    const handleAddToCart = () => {
-        onAddToCart();
+    const { setCart } = useCart();
+
+    const handleAddToCart = async (newQuantity: number) => {
+        const cart = await addProductToCart({ id: product.id, quantity: newQuantity });
+        setCart(cart)
+    };
+
+    const handleIncrement = async () => {
         setShowQuantityInput(true);
-    };
-
-    const handleIncrement = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
+        await handleAddToCart(1)
     };
 
-    const handleDecrement = () => {
+    const handleDecrement = async () => {
         if (quantity > 1) {
             setQuantity(prevQuantity => prevQuantity - 1);
+            await handleAddToCart(-1)
+        } else if (quantity === 1) {
+            setShowQuantityInput(false);
+            setQuantity(0);
+            await handleAddToCart(0)
         }
     };
 
@@ -38,7 +50,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
                     <p className="product-price">{`$ ${product.price}`}</p>
                     <div className='btn-card-container'>
                         {!showQuantityInput && (
-                            <Button label="Agregar" icon="pi pi-shopping-cart" className="p-button-raised p-button-rounded" onClick={handleAddToCart} />
+                            <Button label="Agregar" icon="pi pi-shopping-cart" className="p-button-raised p-button-rounded" onClick={handleIncrement} />
                         )}
                         {showQuantityInput && (
                             <div className="quantity-input">
@@ -47,7 +59,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
                                 <Button icon="pi pi-plus" onClick={handleIncrement} />
                             </div>
                         )}
-                        {/* <Button label="Agregar" icon="pi pi-shopping-cart" className="p-button-raised p-button-rounded" onClick={onAddToCart} /> */}
                     </div>
                 </div>
             </Card>

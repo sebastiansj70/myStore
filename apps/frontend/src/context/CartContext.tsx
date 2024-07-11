@@ -4,6 +4,7 @@ import { addProductToCart } from '@/services/cartService';
 
 interface CartContextType {
     cart: CartItem | undefined;
+    setCart: (cart: CartItem) => void;
     addToCart: (item: newItem) => void;
     loading: boolean;
 }
@@ -26,7 +27,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, loading }}>
+        <CartContext.Provider value={{ cart, addToCart, loading, setCart }}>
             {children}
         </CartContext.Provider>
     );
