@@ -69,8 +69,21 @@ myStore es una aplicación de comercio electrónico diseñada para ofrecer una e
 
 ### Uso
 
-#### Ejecución Monorepo
+5. Para ejecutar el servidor backend (Node.js) en modo desarrollo:
+    ```sh
+    npm run dev:backend
+    ```
 
-Para ejecutar tanto el frontend como el backend simultáneamente desde la raíz del proyecto:
-```sh
-npm run dev
+6. Para ejecutar el servidor frontend (Next.js) en modo desarrollo:
+    ```sh
+    npm run dev:frontend
+    ```
+
+7. Para ejecutar ambos servidores (frontend y backend) en simultáneo en modo desarrollo:
+    ```sh
+    npm run dev:all
+    ```
+
+## Hecho Por
+
+Juan Sebastian Sanchez Parada
