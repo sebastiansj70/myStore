@@ -5,11 +5,15 @@ import { useCart } from '../context/CartContext';
 import { Badge } from 'primereact/badge';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
+import { addProductToCart } from '@/services/cartService';
+import { Product } from '@/entities/productInterface';
+
 
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
-    const { cart } = useCart();
+    const { cart, setCart } = useCart();
     const [countCart, setCountCart] = useState(0)
+
 
 
     const storeNameStyle = {
@@ -21,6 +25,28 @@ const Navbar = () => {
     useEffect(() => {
         setCountCart(cart?.items.length || 0)
     }, [cart])
+
+    const handleAddToCart = async (newQuantity: number, product: Product) => {
+        const cart = await addProductToCart({ id: product.id, quantity: newQuantity });
+        setCart(cart)
+    };
+
+    const handleIncrement = async (product: Product) => {
+        await handleAddToCart(1, product)
+    };
+
+    const handleDecrement = async (product: Product) => {
+        if (product.quantity > 1) {
+            await handleAddToCart(-1, product)
+        } else if (product.quantity === 1) {
+            await handleAddToCart(0, product)
+        }
+    };
+
+    const handleRemoveItemCart = async (product: Product) => {
+        await handleAddToCart(0, product)
+    };
+
 
     return (
         <div>
@@ -40,9 +66,9 @@ const Navbar = () => {
                             <CartItem
                                 key={item.id}
                                 item={item}
-                                onAdd={() => { }}
-                                onRemove={() => { }}
-                                onDelete={() => { }}
+                                onAdd={() => handleIncrement(item)}
+                                onRemove={() => handleDecrement(item)}
+                                onDelete={() => handleRemoveItemCart(item)}
                             />
                         ))}
                         <Checkout total={cart.price.total} onCheckout={() => { }} />

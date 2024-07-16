@@ -6,7 +6,7 @@ interface CartItemProps {
     item: Product;
     onAdd: () => void;
     onRemove: () => void;
-    onDelete: ({ }) => void;
+    onDelete: () => void;
 }
 
 const CartItem: React.FC<CartItemProps> = ({ item, onAdd, onRemove, onDelete }) => {
@@ -18,10 +18,10 @@ const CartItem: React.FC<CartItemProps> = ({ item, onAdd, onRemove, onDelete }) 
                 <div className="cart-item-price">${item.price.subtotal} × {item.quantity}</div>
             </div>
             <div className="cart-item-actions">
-                <Button icon="pi pi-minus" onClick={() => { }} className="p-button-rounded p-button-text" />
+                <Button icon="pi pi-minus" onClick={() => onRemove()} className="p-button-rounded p-button-text" />
                 <span>{item.quantity}</span>
-                <Button icon="pi pi-plus" onClick={() => { }} className="p-button-rounded p-button-text" />
-                <Button icon="pi pi-trash" onClick={() => { }} className="p-button-rounded p-button-danger p-button-text" />
+                <Button icon="pi pi-plus" onClick={() => onAdd()} className="p-button-rounded p-button-text" />
+                <Button icon="pi pi-trash" onClick={() => onDelete()} className="p-button-rounded p-button-danger p-button-text" />
             </div>
         </div>
     );

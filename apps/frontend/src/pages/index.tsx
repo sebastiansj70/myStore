@@ -1,8 +1,16 @@
 import { useProducts } from "@/hooks/useProducts";
 import ProductCard from "@/components/ProductCard";
+import { useEffect, useState } from "react";
+import { Product } from "@/entities/productInterface";
 
 const HomePage = () => {
-    const products = useProducts();
+    const [products, setProducts] =useState<Product[]>([]);
+
+    useEffect(() => {
+        const products = useProducts();
+        setProducts(products)
+    }, [])
+
 
     return (
         <div className="productListContainer">
