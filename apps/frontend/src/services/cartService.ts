@@ -11,3 +11,21 @@ export const addProductToCart = async (item: newItem): Promise<CartItem> => {
         throw new Error('Error adding prodcuts to cart')
     }
 };
+
+export const getCart = async (): Promise<CartItem> => {
+    try {
+        const response = await axios.get(API_URL)
+        return response.data
+    } catch (error) {
+        throw new Error('Error in obtaining to cart')
+    }
+};
+
+export const deleteCart = async (): Promise<CartItem> => {
+    try {
+        const response = await axios.delete(API_URL)
+        return response.data
+    } catch (error) {
+        throw new Error('Error deleting cart')
+    }
+};

@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 import { Badge } from 'primereact/badge';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
-import { addProductToCart } from '@/services/cartService';
+import { addProductToCart, deleteCart, getCart } from '@/services/cartService';
 import { Product } from '@/entities/productInterface';
 
 
@@ -21,6 +21,15 @@ const Navbar = () => {
         fontWeight: 'bold',
         marginLeft: '1rem',
     };
+    useEffect(() => {
+        getAllCarts()
+    }, [])
+
+    const getAllCarts = async () => {
+        const carts = await getCart();
+        setCart(carts)
+    }
+
 
     useEffect(() => {
         setCountCart(cart?.items.length || 0)
@@ -47,7 +56,10 @@ const Navbar = () => {
         await handleAddToCart(0, product)
     };
 
-
+    const handleResetCart = async () => {
+        const data = await deleteCart()
+        setCart(data)
+    }
     return (
         <div>
             <div className="navbar">
@@ -71,7 +83,7 @@ const Navbar = () => {
                                 onDelete={() => handleRemoveItemCart(item)}
                             />
                         ))}
-                        <Checkout total={cart.price.total} onCheckout={() => { }} />
+                        <Checkout total={cart.price.total} onCheckout={() => handleResetCart()} />
                     </>
 
 
