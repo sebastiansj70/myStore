@@ -12,7 +12,6 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-    const [showQuantityInput, setShowQuantityInput] = useState(false);
     const [quantity, setQuantity] = useState(0);
 
     const { setCart } = useCart();
@@ -23,7 +22,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     };
 
     const handleIncrement = async () => {
-        setShowQuantityInput(true);
         setQuantity(prevQuantity => prevQuantity + 1);
         await handleAddToCart(1)
     };
@@ -33,7 +31,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             setQuantity(prevQuantity => prevQuantity - 1);
             await handleAddToCart(-1)
         } else if (quantity === 1) {
-            setShowQuantityInput(false);
             setQuantity(0);
             await handleAddToCart(0)
         }
@@ -49,16 +46,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     <span>{product.description}</span>
                     <p className="product-price">{`$ ${product.price}`}</p>
                     <div className='btn-card-container'>
-                        {!showQuantityInput && (
-                            <Button label="Agregar" icon="pi pi-shopping-cart" className="p-button-raised p-button-rounded" onClick={handleIncrement} />
-                        )}
-                        {showQuantityInput && (
-                            <div className="quantity-input">
-                                <Button icon="pi pi-minus" onClick={handleDecrement} />
-                                <span>{quantity}</span>
-                                <Button icon="pi pi-plus" onClick={handleIncrement} />
-                            </div>
-                        )}
+                        {
+                            product.quantity > 0 ?
+                                <div className="quantity-input">
+                                    <Button icon="pi pi-minus" onClick={handleDecrement} />
+                                    <span>{product.quantity}</span>
+                                    <Button icon="pi pi-plus" onClick={handleIncrement} />
+                                </div>
+                                :
+                                <Button label="Agregar" icon="pi pi-shopping-cart" className="p-button-raised p-button-rounded" onClick={handleIncrement} />
+
+                        }
                     </div>
                 </div>
             </Card>
