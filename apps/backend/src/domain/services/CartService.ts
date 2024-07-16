@@ -5,7 +5,15 @@ class CartService {
     constructor(private readonly cartRepository: CartRepository) { }
 
     async addToCart(items: CartItem): Promise<Cart> {
-        return this.cartRepository.addToCart(items);
+        return await this.cartRepository.addToCart(items);
+    };
+
+    async getCart(): Promise<Cart> {
+        return await this.cartRepository.getCart();
+    }
+
+    async deleteCart(): Promise<Cart> {
+        return await this.cartRepository.deleteCart();
     }
 }
 

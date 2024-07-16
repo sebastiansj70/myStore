@@ -5,23 +5,23 @@ class ProductService {
     constructor(private readonly productRepository: ProductRepository) { }
 
     async getAllProducts(): Promise<Product[]> {
-        return this.productRepository.getAllProducts();
+        return await this.productRepository.getAllProducts();
     }
 
     async getProductById(id: string): Promise<Product | null> {
-        return this.productRepository.getProductById(id);
+        return await this.productRepository.getProductById(id);
     }
 
     async addProduct(product: Product): Promise<void> {
-        await this.productRepository.addProduct(product);
+        return await this.productRepository.addProduct(product);
     }
 
     async deleteProduct(id: string): Promise<void> {
-        await this.productRepository.deleteProduct(id);
+        return await this.productRepository.deleteProduct(id);
     }
 
     async updateProduct(product: Product): Promise<void> {
-        await this.productRepository.updateProduct(product);
+        return await this.productRepository.updateProduct(product);
     }
 }
 

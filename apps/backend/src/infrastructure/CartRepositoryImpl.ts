@@ -104,6 +104,29 @@ class CartRepositoryImpl implements CartRepository {
             throw new Error('Error al calcular los precios del carrito');
         }
     }
+
+    async getCart(): Promise<Cart> {
+        try {
+            const cartData = await fs.readFile(cartFilePath, 'utf8');
+            const cart: Cart = JSON.parse(cartData);
+            return cart
+        } catch (error) {
+            throw new Error('Error al obtener el carrito');
+        }
+    }
+
+    async deleteCart(): Promise<Cart> {
+        try {
+            const cartData = await fs.readFile(cartFilePath, 'utf8');
+            const cart: Cart = JSON.parse(cartData);
+            cart.items = []
+            cart.price.total = 0
+            await fs.writeFile(cartFilePath, JSON.stringify(cart, null, 2));
+            return cart
+        } catch (error) {
+            throw new Error('Error al eliminar el carrito');
+        }
+    }
 }
 
 export default CartRepositoryImpl;
